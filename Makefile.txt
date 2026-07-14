@@ -1,0 +1,19 @@
+# Makefile for Custom V4L2 Capture Driver
+
+# Name of the final kernel module
+obj-m := our_cam.o
+
+# Files that make up the module
+our_cam-y := our_cam_core.o our_cam_cap.o our_cam_hw.o
+
+# Target kernel directory (defaults to current running kernel if not cross-compiling)
+# Need to set up cross compiling
+
+KDIR ?= /lib/modules/$(shell uname -r)/build
+PWD := $(shell pwd)
+
+all:
+	$(MAKE) -C $(KDIR) M=$(PWD) modules
+
+clean:
+	$(MAKE) -C $(KDIR) M=$(PWD) clean

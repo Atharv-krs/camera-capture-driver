@@ -1,0 +1,13 @@
+config VIDEO_OUR_CAM
+	tristate "Custom V4L2 Video Capture Driver"
+	depends on VIDEO_DEV && V4L2_FWNODE
+	select VIDEOBUF2_DMA_CONTIG
+	select V4L2_MEM2MEM_DEV
+	help
+	  A clean, modular V4L2 capture driver.
+	  
+	  This handles V4L2 node registration, videobuf2 memory
+	  management, and low-level hardware abstraction.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called our_cam.
