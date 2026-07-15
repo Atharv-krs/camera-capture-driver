@@ -2,7 +2,7 @@
 #include <linux/platform_device.h>
 #include <linux/of.h>
 #include <linux/interrupt.h>
-#include "our_cam_core.h"
+#include "ocd_core.h"
 
 static int our_cam_probe(struct platform_device *pdev)
 {

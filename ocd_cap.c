@@ -1,4 +1,4 @@
-#include "our_cam_core.h"
+#include "ocd_core.h"
 #include <linux/videodev2.h>
 #include <media/v4l2-ioctl.h>
 #include <media/v4l2-event.h>

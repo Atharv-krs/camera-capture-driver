@@ -4,7 +4,7 @@
 obj-m := ocd_cam.o
 
 # Files that make up the module
-our_cam-y := ocd_core.o ocd_cap.o ocd_hw.o
+ocd_cam-y := ocd_core.o ocd_cap.o ocd_hw.o
 
 # Target kernel directory (defaults to current running kernel if not cross-compiling)
 # Need to set up cross compiling

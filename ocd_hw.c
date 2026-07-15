@@ -1,4 +1,4 @@
-#include "our_cam_core.h"
+#include "ocd_core.h"
 #include <linux/interrupt.h>
 #include <linux/io.h>
 
