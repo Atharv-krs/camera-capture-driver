@@ -57,7 +57,7 @@ static int our_cam_remove(struct platform_device *pdev)
 	v4l2_device_unregister(&our_cam->v4l2_dev);
 	
 	dev_info(&pdev->dev, "Driver removed\n");
-	return 0;
+    return 0;
 }
 
 static const struct of_device_id our_cam_of_match[] = {
