@@ -75,7 +75,41 @@ static struct platform_driver our_cam_driver = {
 	},
 };
 
-module_platform_driver(our_cam_driver);
+//uncomment hardware linkage and comment software mock in case of real hardware and vice-versa
+
+/*hardware linkage*/
+
+//module_platform_driver(our_cam_driver);
+
+/*software mock of hardware*/
+static struct platform_device *our_cam_pdev;
+
+static int __init our_cam_init(void)
+{
+	int ret;
+
+	ret = platform_driver_register(&our_cam_driver);
+	if (ret)
+		return ret;
+
+	our_cam_pdev = platform_device_register_simple(OUR_CAM_DRV_NAME, -1, NULL, 0);
+	if (IS_ERR(our_cam_pdev)) {
+		platform_driver_unregister(&our_cam_driver);
+		return PTR_ERR(our_cam_pdev);
+	}
+
+	return 0;
+}
+
+static void __exit our_cam_exit(void)
+{
+	platform_device_unregister(our_cam_pdev);
+	platform_driver_unregister(&our_cam_driver);
+}
+
+module_init(our_cam_init);
+module_exit(our_cam_exit);
+/*mock finish*/
 
 MODULE_AUTHOR("TEAM TAB");
 MODULE_DESCRIPTION("Custom V4L2 Capture Skeleton Driver");

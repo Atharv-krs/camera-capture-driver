@@ -198,7 +198,7 @@ int our_cam_register_video(struct our_cam_dev *dev)
 	vdev->queue = q;
 	vdev->lock = &cap->lock;
 	vdev->device_caps = V4L2_CAP_VIDEO_CAPTURE | V4L2_CAP_STREAMING;
-	
+    vdev->release = video_device_release_empty;	
 	video_set_drvdata(vdev, cap);
 
 	return video_register_device(vdev, VFL_TYPE_VIDEO, -1);

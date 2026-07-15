@@ -15,7 +15,7 @@ ifeq ($(ARCH),x86_64)
 else ifeq ($(ARCH),arm64)
 	# Cross-compiling for i.MX8
 	# UPDATE THIS PATH to wherever your i.MX kernel source tree is located on your Fedora host!
-	KDIR ?= /home/krs/imx-linux-source/build 
+	KDIR ?= /home/krs/linux-imx 
 	CROSS_COMPILE ?= aarch64-linux-gnu-
 endif
 
